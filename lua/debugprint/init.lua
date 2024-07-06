@@ -66,7 +66,7 @@ local debuginfo = function(opts)
         line = line .. tostring(global_opts.display_counter())
     end
 
-    line = line .. ": " .. vim.fn.expand("%:t") .. ":" .. current_line
+    line = line .. " ~ " .. vim.fn.expand("%:t") .. ":" .. current_line
 
     if global_opts.display_snippet and opts.variable_name == nil then
         local snippet = get_snippet(current_line, opts.above)
@@ -77,7 +77,7 @@ local debuginfo = function(opts)
     end
 
     if opts.variable_name ~= nil then
-        line = line .. ": " .. opts.variable_name .. "="
+        line = line .. " ~ " .. opts.variable_name .. ":"
     end
 
     return line
